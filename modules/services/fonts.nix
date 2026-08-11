@@ -1,4 +1,5 @@
 {
+  device,
   pkgs,
   lib,
   ...
@@ -17,7 +18,7 @@ lib.mkMerge [
       nerd-fonts.jetbrains-mono
     ];
   }
-  {
+  (lib.optionalAttrs (device != "macbook") {
     fonts = {
       enableDefaultPackages = true;
 
@@ -45,5 +46,5 @@ lib.mkMerge [
         };
       };
     };
-  }
+  })
 ]

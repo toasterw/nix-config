@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, device, ... }:
 
 {
   programs.ghostty = {
     enable = true;
-        package = pkgs.ghostty;
+        package = if device == "macbook" then pkgs.ghostty-bin else pkgs.ghostty;
         settings = {
           background = "#161828";
           background-opacity = 1;

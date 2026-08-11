@@ -2,11 +2,20 @@
 
 {
   imports = [
-    ./audio.nix
     ./fonts.nix
-    ./gtk.nix
-  ];
-  home-manager.users.${username}.imports = [
-    ./icons.nix
-  ];
+  ]
+  ++ (if device == "nixos" then
+        [
+          ./audio.nix
+          ./gtk.nix
+        ]
+      else [ ]
+  );
+  home-manager.users.${username}.imports = [ ]
+  ++ (if device == "nixos" then
+    [
+      ./icons.nix
+    ]
+    else [ ]
+  )
 }

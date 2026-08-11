@@ -14,48 +14,61 @@ in
 
 {
  environment.systemPackages = [
-    pkgs.git
-    pkgs.python3
-    pkgs.rustc
-    pkgs.rustPlatform.rustLibSrc
-    pkgs.cargo
+   globalPkgs = [
+     pkgs.git
+     pkgs.python3
+     pkgs.rustc
+     pkgs.rustPlatform.rustLibSrc
+     pkgs.cargo
+     pkgs.jdk25
 
-    pkgs.nvtopPackages.full
-    pkgs.btop
-    pkgs.btop-cuda
-    pkgs.compsize
+     pkgs.btop
 
-    pkgs.mpv
-    (pkgs.ffmpeg-full.override { withUnfree = true; })
-    pkgs.kopuz
+     pkgs.mpv
+     pkgs.kopuz
 
-    pkgs.localsend
-    pkgs.obsidian
-    pkgs.kdePackages.dolphin
+     pkgs.localsend
+     pkgs.obsidian
 
-    pkgs.furmark
+     pkgs.nixfmt-tree
+   ]
 
-    pkgs.jdk25
-    pkgs.idea
+   nixosPkgs = [
+     pkgs.compsize
 
-    pkgs.easyeffects
+     pkgs.kdePackages.dolphin
+     pkgs.easyeffects
+     (pkgs.ffmpeg-full.override { withUnfree = true; })
 
-    inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
-    # .withOverrides {
-    #   extraArgs = [
-    #     "--enable-features=AcceleratedVideoDecodeLinuxGL,VaapiOnNvidiaGPUs"
-    #     "--ignore-gpu-blocklist"
-    #     "--use-gl=angle"
-    #     "--use-angle=gl"
-    #   ];
-    # }
+     pkgs.nvtopPackages.full
+     pkgs.btop-cuda
+     pkgs.furmark
+
+     pkgs.idea
+
+     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+     # .withOverrides {
+     #   extraArgs = [
+     #     "--enable-features=AcceleratedVideoDecodeLinuxGL,VaapiOnNvidiaGPUs"
+     #     "--ignore-gpu-blocklist"
+     #     "--use-gl=angle"
+     #     "--use-angle=gl"
+     #   ];
+     # }
+   ]
+
+   macbookPkgs = [
+     ghostty-bin
+   ]
+
   ];
 
   nixpkgs = {
     config.allowUnfree = true;
   };
 
-  nixpkgs.overlays = [
-    (import apps/overlays/idea.nix)
-  ];
+  nixpkgs.overlays =
+    if device != "macbook" then [
+      (import apps/overlays/idea.nix)
+    ] else [ ];
 }

@@ -2,6 +2,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nix-darwin.url = "github:nix-darwin/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -20,19 +22,11 @@
     {
       self,
       nixpkgs,
+      nix-darwin,
       ...
     }@inputs:
     let
       mkSystem = nixpkgs.lib.nixosSystem;
-      username = "toaster";
-      nixConf = { nix.settings = {
-        experimental-features = [
-          "nix-command"
-          "flakes"
-          "pipe-operators"
-        ];
-        auto-optimise-store = true;
-      };};
     in
     {
 
@@ -40,6 +34,7 @@
         nixos =
           let
             device = "nixos";
+            username = "toaster";
           in
           mkSystem {
             system = "x86-64-linux";
@@ -69,6 +64,43 @@
           ];
         };
       };
-      nixConfig = { inherit nixConf; };
+      darwinConfigurations."Ethans-MacBook-Pro" =
+        let
+          device = "macbook";
+          username = "ethansharp";
+        in
+        nix-darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          specialArgs = {
+            inherit device;
+            inherit username;
+            inherit (inputs) nixpkgs-stable self;
+            inherit inputs;
+          };
+          modules = [
+            ./modules
+            ./modules/apps
+            ./modules/devices/macbook
+            ./modules/shell
+            ./modules/services/fonts.nix
+            inputs.home-manager.darwinModules.home-manager
+            {
+              home-manager = {
+                extraSpecialArgs = {
+                  inherit device username self;
+                };
+              };
+            }
+          ];
+        };
+      nixConfig = {
+          experimental-features = [
+            "nix-command"
+            "flakes"
+            "pipe-operators"
+          ];
+          auto-optimise-store = true;
+
+      };
   };
 }

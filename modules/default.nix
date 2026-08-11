@@ -1,10 +1,12 @@
-{ username, ... }:
+{ device, username, ... }:
 {
-  imports = [
+  imports =
+  [ ] ++ (if device == "nixos" then
+  [
     ./configuration.nix
     ./pkgs.nix
-  ];
-  home-manager.users.${username}.imports = [
-    ./home.nix
-  ];
+  ]
+  else [ ]);
+  home-manager.users.${username}.imports =
+  [ ] ++ (if device != "macbook" then [ ./home.nix ] else [ ]);
 }

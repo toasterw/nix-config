@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ device, pkgs, ... }:
 
 {
   programs.obs-studio = {
