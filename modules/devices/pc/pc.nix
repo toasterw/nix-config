@@ -11,6 +11,11 @@
   fileSystems."/mnt/games" = {
     device = "/dev/disk/by-uuid/ea01290c-b53c-d7ad-c379-393369f4464f";
     fsType = "btrfs";
+    options = [
+      "users"
+      "nofail"
+      "exec"
+    ];
   };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
