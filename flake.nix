@@ -46,9 +46,10 @@
           modules = [
             ./modules
             ./modules/apps
+            ./modules/desktops/dm
             ./modules/desktops/kde
             # ./modules/desktops/niri
-            ./modules/desktops/dm
+            ./modules/desktops/xfce
             ./modules/devices/pc
             ./modules/services
             ./modules/shell
