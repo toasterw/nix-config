@@ -1,21 +1,24 @@
 { pkgs, config, ... }:
 
 {
-  hardware.graphics = {
-    enable = true;
-    extraPackages = [ pkgs.nvidia-vaapi-driver ];
-  };
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = [ pkgs.nvidia-vaapi-driver ];
+    };
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      powerManagement.finegrained = false;
 
-    open = true;
+      open = true;
 
-    nvidiaSettings = true;
+      nvidiaSettings = true;
 
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
+    };
   };
 
   services.xserver.videoDrivers = ["nvidia"];
