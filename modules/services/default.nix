@@ -1,4 +1,4 @@
-{ username, ... }:
+{ device, username, ... }:
 
 {
   imports = [

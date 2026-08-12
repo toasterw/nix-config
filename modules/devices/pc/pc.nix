@@ -20,7 +20,11 @@
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
   # fix resource loading conflict with it87
-  boot.kernelParams = [ "acpi_enforce_resources=lax" ];
+  boot.kernelParams = [
+    "acpi_enforce_resources=lax"
+    "drm.edid_firmware=DP-2:edid/virtual-display.bin"
+    "video=DP-2:e"
+  ];
 
   boot.blacklistedKernelModules = [ "k10temp" ];
   boot.kernelModules = [ "zenpower" "it87" ];
@@ -31,6 +35,14 @@
   boot.extraModprobeConfig = ''
       options it87 force_id=0x8696
     '';
+
+  hardware.firmware = [
+  (
+    pkgs.runCommand "virtual-display.bin" { } ''
+      mkdir -p $out/lib/firmware/edid
+      cp ${../../../resources/virtual-display.bin} $out/lib/firmware/edid/virtual-display.bin
+    ''
+  )];
 
   hardware.wooting.enable = true;
 
