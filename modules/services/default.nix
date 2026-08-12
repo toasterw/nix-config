@@ -7,6 +7,7 @@
   ++ (if device == "nixos" then
         [
           ./audio.nix
+          ./docker.nix
           ./gtk.nix
         ]
       else [ ]
