@@ -5,8 +5,18 @@
 }:
 
 {
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.limine = {
+    enable = true;
+    secureBoot = {
+      enable = true;
+    };
+  };
+
   boot.loader.efi.canTouchEfiVariables = true;
+
+  environment.systemPackages = [
+    pkgs.sbctl
+  ];
 
   fileSystems."/mnt/games" = {
     device = "/dev/disk/by-uuid/ea01290c-b53c-d7ad-c379-393369f4464f";
