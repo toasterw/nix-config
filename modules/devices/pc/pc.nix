@@ -72,6 +72,10 @@
       };
   };
 
+  services.udev.extraRules = ''
+    KERNEL=="uhid", SUBSYSTEM=="misc", GROUP="uinput", MODE="0660"
+  '';
+
   services.hardware.openrgb.enable = true;
 
   powerManagement.cpuFreqGovernor = "performance";
