@@ -23,12 +23,12 @@
 
   services.xserver.videoDrivers = ["nvidia"];
 
-  environment.sessionVariables = {
-    LIBVA_DRIVER_NAME = "nvidia";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    LIBVA_DRIVERS_PATH = "/run/opengl-driver/lib/dri";
-    VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json";
-  };
+  # environment.sessionVariables = {
+  #   LIBVA_DRIVER_NAME = "nvidia";
+  #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  #   LIBVA_DRIVERS_PATH = "/run/opengl-driver/lib/dri";
+  #   VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json";
+  # };
 
   nixpkgs.overlays = [
     (import ../../apps/overlays/nvidia-vaapi-driver.nix)
