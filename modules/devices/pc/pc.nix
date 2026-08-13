@@ -56,6 +56,13 @@
 
   hardware.wooting.enable = true;
 
+  services.printing = {
+    enable = true;
+    drivers = [
+      pkgs.cnijfilter2
+    ];
+  };
+
   environment.etc."libinput/local-overrides.quirks".text = pkgs.lib.mkForce ''
     [Glorious Model O Wireless]
     MatchName=Glorious Model O Wireless

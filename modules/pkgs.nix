@@ -43,6 +43,8 @@ let
 
     pkgs.idea
 
+    pkgs.libreoffice
+
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
     # .withOverrides {
     #   extraArgs = [
