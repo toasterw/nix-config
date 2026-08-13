@@ -9,6 +9,7 @@
           ./audio.nix
           ./docker.nix
           ./gtk.nix
+          ./tailscale.nix
         ]
       else [ ]
   );
@@ -18,5 +19,5 @@
       ./icons.nix
     ]
     else [ ]
-  )
+  );
 }
