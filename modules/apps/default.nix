@@ -3,6 +3,7 @@
 {
   imports = [
     ./gpg.nix
+    ./kopuz.nix
     ./zed.nix
 
     ./terminals

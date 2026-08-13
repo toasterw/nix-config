@@ -2,7 +2,6 @@
   pkgs,
   self,
   username,
-  inputs,
   nixpkgs-stable,
   ...
 }:

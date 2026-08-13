@@ -16,6 +16,7 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    kopuz.url = "github:kopuz-org/kopuz";
     helium.url = "github:clamlum/helium-flake";
   };
   outputs =
