@@ -102,7 +102,6 @@
             "pipe-operators"
           ];
           auto-optimise-store = true;
-
       };
   };
 }
