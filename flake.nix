@@ -44,26 +44,26 @@
               inherit (inputs) nixpkgs-stable self;
               inherit inputs;
             };
-          modules = [
-            ./modules
-            ./modules/apps
-            ./modules/desktops/dm
-            ./modules/desktops/kde
-            # ./modules/desktops/niri
-            # ./modules/desktops/xfce
-            ./modules/devices/pc
-            ./modules/services
-            ./modules/shell
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
-                extraSpecialArgs = {
-                  inherit device username self;
+            modules = [
+              ./modules
+              ./modules/apps
+              ./modules/desktops/dm
+              ./modules/desktops/kde
+              # ./modules/desktops/niri
+              # ./modules/desktops/xfce
+              ./modules/devices/pc
+              ./modules/services
+              ./modules/shell
+              inputs.home-manager.nixosModules.home-manager
+              {
+                home-manager = {
+                  sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
+                  extraSpecialArgs = {
+                    inherit device username self;
+                  };
                 };
-              };
-            }
-          ];
+              }
+            ];
         };
       };
       darwinConfigurations."Ethans-MacBook-Pro" =
