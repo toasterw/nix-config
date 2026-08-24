@@ -1,5 +1,11 @@
-{ pkgs, inputs,  ... }:
-let
+{ device, pkgs, inputs,  ... }:
+if device == "nixos" then
+{
+  environment.systemPackages = [
+    inputs.kopuz.packages.${pkgs.stdenv.hostPlatform.system}.default
+  ];
+}
+ else let
   system = pkgs.stdenv.hostPlatform.system;
   kopuzSrc = inputs.kopuz;
   kopuzBin = inputs.kopuz.packages.${system}.default;
