@@ -41,6 +41,8 @@ let
     pkgs.btop-cuda
     pkgs.furmark
 
+    pkgs.jellyfin-mpv-shim
+
     pkgs.idea
 
     pkgs.libreoffice
