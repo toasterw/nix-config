@@ -14,6 +14,7 @@
     ./firefox.nix
     ./gaming.nix
     ./obs.nix
+    ./seanime.nix
   ] else [ ]
   );
 
