@@ -1,5 +1,4 @@
-final: prev:
-{
+final: prev: {
   nvidia-vaapi-driver = prev.nvidia-vaapi-driver.overrideAttrs (old: {
     src = prev.fetchFromGitHub {
       owner = "elFarto";

@@ -1,6 +1,5 @@
-final: prev:
-{
-  linuxPackages_zen = prev.linuxPackages_zen.extend(
+final: prev: {
+  linuxPackages_zen = prev.linuxPackages_zen.extend (
     lfinal: lprev: {
       zenpower5 = prev.linuxPackages_zen.zenpower.overrideAttrs (_: {
         version = "0.5.0";

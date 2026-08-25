@@ -37,22 +37,24 @@
   ];
 
   boot.blacklistedKernelModules = [ "k10temp" ];
-  boot.kernelModules = [ "zenpower" "it87" ];
+  boot.kernelModules = [
+    "zenpower"
+    "it87"
+  ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
     zenpower5
     it87
   ];
   boot.extraModprobeConfig = ''
-      options it87 force_id=0x8696
-    '';
+    options it87 force_id=0x8696
+  '';
 
   hardware.firmware = [
-  (
-    pkgs.runCommand "virtual-display.bin" { } ''
+    (pkgs.runCommand "virtual-display.bin" { } ''
       mkdir -p $out/lib/firmware/edid
       cp ${../../../resources/virtual-display.bin} $out/lib/firmware/edid/virtual-display.bin
-    ''
-  )];
+    '')
+  ];
 
   hardware.wooting.enable = true;
 
@@ -84,9 +86,9 @@
     capSysAdmin = true;
     openFirewall = true;
     package = pkgs.sunshine.override {
-        cudaSupport = true;
-        cudaPackages = pkgs.cudaPackages;
-      };
+      cudaSupport = true;
+      cudaPackages = pkgs.cudaPackages;
+    };
   };
 
   services.udev.extraRules = ''

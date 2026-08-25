@@ -2,9 +2,10 @@
 {
   environment.systemPackages = [
     pkgs.gnupg
-  ] ++ (if device == "macbook" then [ pkgs.pinentry_mac ] else [ ]);
+  ]
+  ++ (if device == "macbook" then [ pkgs.pinentry_mac ] else [ ]);
 
   programs.gnupg.agent = {
-      enable = true;
+    enable = true;
   };
 }

@@ -51,8 +51,10 @@ in
 {
   nixpkgs.overlays = [ (import overlays/discord.nix) ];
 
-  environment.systemPackages = [ (patchedDiscord.override {
-    withVencord = true;
-    withOpenASAR = true;
-  })];
+  environment.systemPackages = [
+    (patchedDiscord.override {
+      withVencord = true;
+      withOpenASAR = true;
+    })
+  ];
 }

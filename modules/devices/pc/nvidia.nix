@@ -21,7 +21,7 @@
     };
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # environment.sessionVariables = {
   #   LIBVA_DRIVER_NAME = "nvidia";

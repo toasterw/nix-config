@@ -8,14 +8,18 @@
 
     ./terminals
   ]
-  ++ (if device == "nixos" then [
-    ./coolercontrol.nix
-    ./discord.nix
-    ./firefox.nix
-    ./gaming.nix
-    ./obs.nix
-    ./seanime.nix
-  ] else [ ]
+  ++ (
+    if device == "nixos" then
+      [
+        ./coolercontrol.nix
+        ./discord.nix
+        ./firefox.nix
+        ./gaming.nix
+        ./obs.nix
+        ./seanime.nix
+      ]
+    else
+      [ ]
   );
 
 }

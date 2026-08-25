@@ -81,24 +81,27 @@ let
 in
 
 {
- environment.systemPackages =
-     [ ]
-     ++ globalPkgs
-     ++ (
-       if device == "nixos" then
-         nixosPkgs
-       else if device == "macbook" then
-         macbookPkgs
-       else
-         [ ]
-     );
+  environment.systemPackages =
+    [ ]
+    ++ globalPkgs
+    ++ (
+      if device == "nixos" then
+        nixosPkgs
+      else if device == "macbook" then
+        macbookPkgs
+      else
+        [ ]
+    );
 
   nixpkgs = {
     config.allowUnfree = true;
   };
 
   nixpkgs.overlays =
-    if device != "macbook" then [
-      (import apps/overlays/idea.nix)
-    ] else [ ];
+    if device != "macbook" then
+      [
+        (import apps/overlays/idea.nix)
+      ]
+    else
+      [ ];
 }
