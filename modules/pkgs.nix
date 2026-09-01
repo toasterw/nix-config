@@ -20,6 +20,9 @@ let
     pkgs.cargo
     pkgs.jdk25
 
+    pkgs.zip
+    pkgs.unzip
+
     pkgs.btop
 
     pkgs.mpv
@@ -36,6 +39,9 @@ let
     pkgs.kdePackages.dolphin
     pkgs.easyeffects
     (pkgs.ffmpeg-full.override { withUnfree = true; })
+
+    pkgs.libimobiledevice
+    pkgs.ifuse
 
     pkgs.nvtopPackages.full
     pkgs.btop-cuda
@@ -56,6 +62,7 @@ let
     #     "--use-angle=gl"
     #   ];
     # }
+    pkgs.brave-origin
   ];
 
   macbookPkgs = [
