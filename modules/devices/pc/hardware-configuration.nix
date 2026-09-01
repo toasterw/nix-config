@@ -31,7 +31,6 @@
     fsType = "btrfs";
     options = [
       "subvol=root"
-      "compress=zstd"
     ];
   };
 
@@ -40,7 +39,6 @@
     fsType = "btrfs";
     options = [
       "subvol=home"
-      "compress=zstd"
     ];
   };
 
@@ -49,8 +47,6 @@
     fsType = "btrfs";
     options = [
       "subvol=nix"
-      "compress=zstd"
-      "noatime"
     ];
   };
 
@@ -62,6 +58,11 @@
       "dmask=0077"
     ];
   };
+
+  fileSystems."/mnt/games" =
+      { device = "/dev/disk/by-uuid/ea01290c-b53c-d7ad-c379-393369f4464f";
+        fsType = "btrfs";
+      };
 
   swapDevices = [ ];
 

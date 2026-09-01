@@ -18,14 +18,11 @@
     pkgs.sbctl
   ];
 
-  fileSystems."/mnt/games" = {
-    device = "/dev/disk/by-uuid/ea01290c-b53c-d7ad-c379-393369f4464f";
-    fsType = "btrfs";
-    options = [
-      "users"
-      "nofail"
-      "exec"
-    ];
+  fileSystems = {
+    "/".options = [ "compress=zstd"];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
+    "/mnt/games".options = [ "users" "nofail" "exec" ];
   };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
