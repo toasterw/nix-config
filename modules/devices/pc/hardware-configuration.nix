@@ -4,6 +4,7 @@
 {
   config,
   lib,
+  pkgs,
   modulesPath,
   ...
 }:
@@ -29,25 +30,25 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/eb1099d2-91b7-4c88-a8ea-3847dc670b8c";
     fsType = "btrfs";
-    options = [
-      "subvol=root"
-    ];
+    options = [ "subvol=root" ];
   };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/eb1099d2-91b7-4c88-a8ea-3847dc670b8c";
     fsType = "btrfs";
-    options = [
-      "subvol=home"
-    ];
+    options = [ "subvol=home" ];
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/eb1099d2-91b7-4c88-a8ea-3847dc670b8c";
     fsType = "btrfs";
-    options = [
-      "subvol=nix"
-    ];
+    options = [ "subvol=nix" ];
+  };
+
+  fileSystems."/swap" = {
+    device = "/dev/disk/by-uuid/eb1099d2-91b7-4c88-a8ea-3847dc670b8c";
+    fsType = "btrfs";
+    options = [ "subvol=swap" ];
   };
 
   fileSystems."/boot" = {
@@ -59,10 +60,10 @@
     ];
   };
 
-  fileSystems."/mnt/games" =
-      { device = "/dev/disk/by-uuid/ea01290c-b53c-d7ad-c379-393369f4464f";
-        fsType = "btrfs";
-      };
+  fileSystems."/mnt/games" = {
+    device = "/dev/disk/by-uuid/ea01290c-b53c-d7ad-c379-393369f4464f";
+    fsType = "btrfs";
+  };
 
   swapDevices = [ ];
 

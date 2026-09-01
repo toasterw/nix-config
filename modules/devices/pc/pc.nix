@@ -19,16 +19,30 @@
   ];
 
   fileSystems = {
-    "/".options = [ "compress=zstd"];
+    "/".options = [ "compress=zstd" ];
     "/home".options = [ "compress=zstd" ];
-    "/nix".options = [ "compress=zstd" "noatime" ];
-    "/mnt/games".options = [ "users" "nofail" "exec" ];
+    "/nix".options = [
+      "compress=zstd"
+      "noatime"
+    ];
+    "/swap".options = [ "noatime" ];
+    "/mnt/games".options = [
+      "users"
+      "nofail"
+      "exec"
+    ];
   };
 
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      size = 16 * 1024; # 16GiB swap file
+    }
+  ];
+
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  # fix resource loading conflict with it87
   boot.kernelParams = [
-    "acpi_enforce_resources=lax"
+    "acpi_enforce_resources=lax" # fix resource loading conflict with it87
     "drm.edid_firmware=DP-2:edid/virtual-display.bin"
     "video=DP-2:e"
   ];
