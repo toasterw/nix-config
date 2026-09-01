@@ -19,6 +19,7 @@ let
     pkgs.rustPlatform.rustLibSrc
     pkgs.cargo
     pkgs.jdk25
+    pkgs.bubblewrap
 
     pkgs.zip
     pkgs.unzip
