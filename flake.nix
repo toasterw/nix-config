@@ -49,7 +49,7 @@
               ./modules/apps
               ./modules/desktops/dm
               ./modules/desktops/kde
-              # ./modules/desktops/niri
+              ./modules/desktops/niri
               # ./modules/desktops/xfce
               ./modules/devices/pc
               ./modules/services

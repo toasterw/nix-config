@@ -8,4 +8,6 @@
       save = false;
     };
   };
+
+  services.displayManager.defaultSession = "niri";
 }
