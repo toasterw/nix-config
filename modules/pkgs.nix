@@ -25,6 +25,7 @@ let
     pkgs.unzip
 
     pkgs.btop
+    pkgs.fastfetch
 
     pkgs.mpv
 
