@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  username,
   ...
 }:
 
@@ -75,6 +76,10 @@
       pkgs.cnijfilter2
     ];
   };
+
+  hardware.sane.enable = true;
+
+  users.users.${username}.extraGroups = [ "scanner" "lp" ];
 
   environment.etc."libinput/local-overrides.quirks".text = pkgs.lib.mkForce ''
     [Glorious Model O Wireless]
