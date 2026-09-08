@@ -38,7 +38,6 @@ let
   nixosPkgs = [
     pkgs.compsize
 
-    pkgs.kdePackages.dolphin
     pkgs.easyeffects
     (pkgs.ffmpeg-full.override { withUnfree = true; })
 
