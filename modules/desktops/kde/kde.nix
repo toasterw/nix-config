@@ -6,11 +6,6 @@
   };
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    dolphin
-    dolphin-plugins
-
-    gwenview
-    okular
     kate
     kwrited
 
@@ -24,7 +19,6 @@
     korganizer
     kaddressbook
     kleopatra
-    print-manager
     khelpcenter
 
     plasma-browser-integration
