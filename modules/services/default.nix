@@ -8,8 +8,9 @@
     if device == "nixos" then
       [
         ./audio.nix
-        ./docker.nix
+        # ./docker.nix
         ./gtk.nix
+        # ./ollama.nix
         ./tailscale.nix
       ]
     else
