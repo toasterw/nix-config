@@ -4,10 +4,10 @@ final: prev: {
       zenpower5 = prev.linuxPackages_zen.zenpower.overrideAttrs (_: {
         version = "0.5.0";
         src = prev.fetchFromGitHub {
-          owner = "mattkeenan";
+          owner = "Artanejp";
           repo = "zenpower5";
-          rev = "66871d8e59c3741e00de2eb1f61c3b64263ed10b";
-          hash = "sha256-g0zVTDi5owa6XfQN8vlFwGX+gpRIg+5q1F4EuxAk9Sk=";
+          rev = "746c9af943c5aabdba132fed8473599f511b083b";
+          hash = "sha256-Gecm9JGoYEOWZiVoBVmIj5zMB5izOT2x35+nEy+XXE8=";
         };
       });
     }
