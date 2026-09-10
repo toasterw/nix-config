@@ -11,6 +11,11 @@
     secureBoot = {
       enable = true;
     };
+    extraEntries = ''
+      /Windows
+        protocol: efi
+        path: uuid(92cc8a94-0fec-457b-b74c-434bb67e0f0f):/EFI/Microsoft/Boot/bootmgfw.efi
+    '';
   };
 
   boot.loader.efi.canTouchEfiVariables = true;
