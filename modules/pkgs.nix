@@ -19,7 +19,6 @@ let
     pkgs.rustPlatform.rustLibSrc
     pkgs.cargo
     pkgs.jdk25
-    pkgs.bubblewrap
 
     pkgs.zip
     pkgs.unzip
@@ -37,6 +36,7 @@ let
 
   nixosPkgs = [
     pkgs.compsize
+    pkgs.bubblewrap
 
     pkgs.easyeffects
     (pkgs.ffmpeg-full.override { withUnfree = true; })
@@ -77,12 +77,12 @@ let
     pkgs.orion-browser
     pkgs.postman
     pkgs.vesktop
-    pkgs.rstudio
+    # pkgs.rstudio
     pkgs.tailscale-gui
     pkgs.transmission_4-mac
     pkgs.utm
     pkgs.vscode
-    stable.prismlauncher
+    pkgs.prismlauncher
     pkgs.netbeans
     pkgs.jetbrains.idea
   ];
