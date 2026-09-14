@@ -9,5 +9,10 @@
     };
   };
 
-  services.displayManager.defaultSession = "niri";
+  services.displayManager.defaultSession = "plasma";
+
+  # services.displayManager.autoLogin = {
+  #   enable = true;
+  #   user = "toaster";
+  # };
 }
