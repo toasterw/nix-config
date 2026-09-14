@@ -1,4 +1,4 @@
-{ device, username, ... }:
+{ device, ... }:
 
 {
   imports = [
@@ -9,21 +9,10 @@
       [
         ./audio.nix
         # ./docker.nix
-        ./gtk.nix
         # ./ollama.nix
         ./tailscale.nix
       ]
     else
       [ ]
   );
-  home-manager.users.${username}.imports =
-    [ ]
-    ++ (
-      if device == "nixos" then
-        [
-          ./icons.nix
-        ]
-      else
-        [ ]
-    );
 }

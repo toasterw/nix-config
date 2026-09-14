@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-
+{ pkgs, username, ... }:
 {
   security.rtkit.enable = true;
 
@@ -47,7 +46,7 @@
     }
   ];
 
-  users.users."toaster".extraGroups = [ "audio" ];
+  users.users.${username}.extraGroups = [ "audio" ];
 
   boot.kernel.sysctl = {
     "kernel.sched_rt_runtime_us" = -1;
