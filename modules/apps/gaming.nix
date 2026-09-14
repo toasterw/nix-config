@@ -33,7 +33,6 @@ in
 
   programs.gamescope = {
     enable = true;
-    package = stable.gamescope;
     enableWsi = true;
     capSysNice = false;
   };
