@@ -11,6 +11,7 @@
         # ./docker.nix
         # ./ollama.nix
         ./tailscale.nix
+        ./sunshine.nix
       ]
     else
       [ ]

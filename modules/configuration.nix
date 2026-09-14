@@ -33,6 +33,7 @@
       "networkmanager"
       "wheel"
       "uinput"
+      "input"
     ];
     shell = pkgs.zsh;
   };

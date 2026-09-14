@@ -75,6 +75,18 @@
 
   hardware.wooting.enable = true;
 
+  # Generic Razer Devices (Synapse Web)
+  services.udev.extraRules = ''
+    SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1532", MODE:="0660", GROUP="input" TAG+="uaccess"
+    SUBSYSTEM=="usb", ATTRS{idVendor}=="1532", MODE:="0660", GROUP="input", TAG+="uaccess"
+  '';
+
+  environment.etc."libinput/local-overrides.quirks".text = pkgs.lib.mkForce ''
+    [Glorious Model O Wireless]
+    MatchName=Glorious Model O Wireless
+    ModelBouncingKeys=1
+  '';
+
   services.printing = {
     enable = true;
     drivers = [
@@ -86,35 +98,10 @@
 
   users.users.${username}.extraGroups = [ "scanner" "lp" ];
 
-  environment.etc."libinput/local-overrides.quirks".text = pkgs.lib.mkForce ''
-    [Glorious Model O Wireless]
-    MatchName=Glorious Model O Wireless
-    ModelBouncingKeys=1
-  '';
-
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 25565 ];
-    allowedUDPPorts = [
-      8800
-      25565
-    ];
   };
-
-  services.sunshine = {
-    enable = true;
-    autoStart = true;
-    capSysAdmin = true;
-    openFirewall = true;
-    package = pkgs.sunshine.override {
-      cudaSupport = true;
-      cudaPackages = pkgs.cudaPackages;
-    };
-  };
-
-  services.udev.extraRules = ''
-    KERNEL=="uhid", SUBSYSTEM=="misc", GROUP="uinput", MODE="0660"
-  '';
 
   services.hardware.openrgb.enable = true;
 
