@@ -96,7 +96,10 @@
 
   hardware.sane.enable = true;
 
-  users.users.${username}.extraGroups = [ "scanner" "lp" ];
+  users.users.${username}.extraGroups = [
+    "scanner"
+    "lp"
+  ];
 
   networking.firewall = {
     enable = true;
