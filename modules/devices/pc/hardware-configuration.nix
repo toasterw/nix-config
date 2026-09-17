@@ -27,6 +27,8 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  boot.supportedFilesystems = [ "nfs" ];
+
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/eb1099d2-91b7-4c88-a8ea-3847dc670b8c";
     fsType = "btrfs";
@@ -63,6 +65,16 @@
   fileSystems."/mnt/games" = {
     device = "/dev/disk/by-uuid/ea01290c-b53c-d7ad-c379-393369f4464f";
     fsType = "btrfs";
+  };
+
+  fileSystems."/mnt/NAS" = {
+    device = "192.168.0.10:/mnt/NAS/Storage";
+    fsType = "nfs4";
+  };
+
+  fileSystems."/mnt/Jellyfin" = {
+    device = "192.168.0.10:/mnt/NAS/Jellyfin";
+    fsType = "nfs4";
   };
 
   swapDevices = [ ];
