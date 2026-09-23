@@ -49,6 +49,7 @@ let
     pkgs.furmark
 
     pkgs.jellyfin-mpv-shim
+    pkgs.jellyfin-desktop
 
     pkgs.idea
 
@@ -109,6 +110,7 @@ in
     if device != "macbook" then
       [
         (import apps/overlays/idea.nix)
+        (import apps/overlays/jellyfin-desktop.nix)
       ]
     else
       [ ];
