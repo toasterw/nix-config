@@ -12,7 +12,6 @@
     elisa
     dragon
 
-    ark
     kalk
     kmail
     kontact
