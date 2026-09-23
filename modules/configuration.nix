@@ -1,11 +1,5 @@
 { pkgs, ... }:
 {
-  networking.networkmanager.enable = true;
-  networking.nftables.enable = true;
-  networking.firewall = {
-    enable = true;
-  };
-
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = false;
