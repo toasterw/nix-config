@@ -17,7 +17,7 @@
         ./gaming.nix
         ./obs.nix
         ./seanime.nix
-        # ./virtualbox.nix
+        ./virtualisation.nix
       ]
     else
       [ ]
