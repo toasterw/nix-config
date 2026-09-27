@@ -51,7 +51,7 @@ let
     pkgs.jellyfin-mpv-shim
     pkgs.jellyfin-desktop
 
-    pkgs.idea
+    pkgs.jetbrains.idea
 
     pkgs.libreoffice
 
@@ -109,7 +109,6 @@ in
   nixpkgs.overlays =
     if device != "macbook" then
       [
-        (import apps/overlays/idea.nix)
         (import apps/overlays/jellyfin-desktop.nix)
       ]
     else
