@@ -17,7 +17,10 @@
     };
 
     kopuz.url = "github:kopuz-org/kopuz";
-    helium.url = "github:clamlum/helium-flake";
+    helium = {
+      url = "github:clamlum/helium-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
