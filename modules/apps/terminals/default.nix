@@ -1,4 +1,5 @@
 { device, username, ... }:
+
 {
   home-manager.users.${username}.imports =
     if device == "nixos" then

@@ -4,6 +4,7 @@
   inputs,
   ...
 }:
+
 if device == "nixos" then
   {
     environment.systemPackages = [

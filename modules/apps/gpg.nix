@@ -1,4 +1,5 @@
 { device, pkgs, ... }:
+
 {
   environment.systemPackages = [
     pkgs.gnupg

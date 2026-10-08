@@ -1,4 +1,5 @@
 { pkgs, username, ... }:
+
 {
   security.rtkit.enable = true;
 
