@@ -12,6 +12,7 @@
         # ./ollama.nix
         ./tailscale.nix
         ./sunshine.nix
+        ./wings.nix
       ]
     else
       [ ]

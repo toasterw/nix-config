@@ -41,9 +41,6 @@ let
     pkgs.easyeffects
     (pkgs.ffmpeg-full.override { withUnfree = true; })
 
-    pkgs.libimobiledevice
-    pkgs.ifuse
-
     pkgs.nvtopPackages.full
     pkgs.btop-cuda
     pkgs.furmark

@@ -21,6 +21,10 @@
       url = "github:clamlum/helium-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    wings = {
+      url = "github:toasterw/wings-flake";
+    };
   };
   outputs =
     {
