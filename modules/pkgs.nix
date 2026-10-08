@@ -55,6 +55,8 @@ let
 
     pkgs.libreoffice
 
+    pkgs.librepods
+
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
     # .withOverrides {
     #   extraArgs = [
@@ -110,6 +112,7 @@ in
     if device != "macbook" then
       [
         (import apps/overlays/jellyfin-desktop.nix)
+        (import apps/overlays/librepods.nix)
       ]
     else
       [ ];
