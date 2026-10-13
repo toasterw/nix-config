@@ -52,6 +52,8 @@ let
 
     pkgs.libreoffice
 
+    pkgs.losslesscut
+
     pkgs.librepods
 
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
