@@ -72,7 +72,6 @@ let
     pkgs.bitwarden-desktop
     pkgs.firefox
     pkgs.iina
-    pkgs.iloader
     pkgs.keka
     pkgs.orion-browser
     pkgs.postman
