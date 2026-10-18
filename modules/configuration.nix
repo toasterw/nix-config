@@ -8,6 +8,8 @@
 
   services.openssh.enable = true;
 
+  programs.nix-ld.enable = true;
+
   time.timeZone = "Pacific/Auckland";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
