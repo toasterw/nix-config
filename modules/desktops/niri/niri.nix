@@ -6,6 +6,10 @@
     package = pkgs.niri;
   };
 
+  programs.noctalia = {
+    enable = true;
+  };
+
   environment.systemPackages = [
     pkgs.xwayland-satellite
 
