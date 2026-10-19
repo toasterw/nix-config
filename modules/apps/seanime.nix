@@ -2,9 +2,7 @@
   pkgs,
   lib,
   ...
-}:
-
-let
+}: let
   pname = "seanime-denshi";
   version = "3.10.3";
 
@@ -43,10 +41,9 @@ let
       homepage = "https://github.com/5rahim/seanime";
       license = lib.licenses.gpl3Plus;
       mainProgram = pname;
-      platforms = [ "x86_64-linux" ];
+      platforms = ["x86_64-linux"];
     };
   };
-in
-{
-  environment.systemPackages = [ seanimeDenshi ];
+in {
+  environment.systemPackages = [seanimeDenshi];
 }

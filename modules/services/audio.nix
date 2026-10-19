@@ -1,6 +1,8 @@
-{ pkgs, username, ... }:
-
 {
+  pkgs,
+  username,
+  ...
+}: {
   security.rtkit.enable = true;
 
   services.pulseaudio.enable = false;
@@ -47,7 +49,7 @@
     }
   ];
 
-  users.users.${username}.extraGroups = [ "audio" ];
+  users.users.${username}.extraGroups = ["audio"];
 
   boot.kernel.sysctl = {
     "kernel.sched_rt_runtime_us" = -1;

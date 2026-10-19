@@ -1,6 +1,8 @@
-{ device, pkgs, ... }:
-
 {
+  device,
+  pkgs,
+  ...
+}: {
   programs.obs-studio = {
     enable = true;
 
@@ -21,6 +23,6 @@
   environment.systemPackages = [
     pkgs.libva-vdpau-driver
     pkgs.libva-utils
-    (pkgs.ffmpeg-full.override { withUnfree = true; })
+    (pkgs.ffmpeg-full.override {withUnfree = true;})
   ];
 }

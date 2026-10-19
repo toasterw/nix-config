@@ -1,6 +1,8 @@
-{ pkgs, username, ... }:
-
 {
+  pkgs,
+  username,
+  ...
+}: {
   virtualisation.libvirtd = {
     enable = true;
     qemu.vhostUserPackages = [
@@ -9,13 +11,13 @@
   };
   programs.virt-manager.enable = true;
 
-  users.users.${username}.extraGroups = [ "libvirtd" ];
+  users.users.${username}.extraGroups = ["libvirtd"];
 
   environment.systemPackages = [
     pkgs.dnsmasq
   ];
 
-  networking.firewall.trustedInterfaces = [ "virbr0" ];
+  networking.firewall.trustedInterfaces = ["virbr0"];
 
   # virtualisation.virtualbox.host.enable = true;
   # users.users.${username}.extraGroups = [ "vboxusers" ];

@@ -6,6 +6,6 @@
 
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 25565 ];
+    allowedTCPPorts = [25565];
   };
 }

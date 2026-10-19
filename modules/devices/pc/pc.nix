@@ -3,9 +3,7 @@
   config,
   username,
   ...
-}:
-
-{
+}: {
   boot.loader.limine = {
     enable = true;
     secureBoot = {
@@ -31,7 +29,7 @@
     "video=DP-2:e"
   ];
 
-  boot.blacklistedKernelModules = [ "k10temp" ];
+  boot.blacklistedKernelModules = ["k10temp"];
   boot.kernelModules = [
     "zenpower"
     "it87"
@@ -45,7 +43,7 @@
   '';
 
   hardware.firmware = [
-    (pkgs.runCommand "virtual-display.bin" { } ''
+    (pkgs.runCommand "virtual-display.bin" {} ''
       mkdir -p $out/lib/firmware/edid
       cp ${../../../resources/virtual-display.bin} $out/lib/firmware/edid/virtual-display.bin
     '')

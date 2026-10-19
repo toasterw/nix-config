@@ -4,9 +4,7 @@
   device,
   inputs,
   ...
-}:
-
-let
+}: let
   stable = import nixpkgs-stable {
     system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
@@ -41,7 +39,7 @@ let
     pkgs.bubblewrap
 
     pkgs.easyeffects
-    (pkgs.ffmpeg-full.override { withUnfree = true; })
+    (pkgs.ffmpeg-full.override {withUnfree = true;})
 
     pkgs.nvtopPackages.full
     pkgs.btop-cuda
@@ -89,19 +87,16 @@ let
     pkgs.netbeans
     pkgs.jetbrains.idea
   ];
-in
-
-{
+in {
   environment.systemPackages =
-    [ ]
+    []
     ++ globalPkgs
     ++ (
-      if device == "nixos" then
-        nixosPkgs
-      else if device == "macbook" then
-        macbookPkgs
-      else
-        [ ]
+      if device == "nixos"
+      then nixosPkgs
+      else if device == "macbook"
+      then macbookPkgs
+      else []
     );
 
   nixpkgs = {
@@ -109,11 +104,10 @@ in
   };
 
   nixpkgs.overlays =
-    if device != "macbook" then
-      [
-        (import apps/overlays/jellyfin-desktop.nix)
-        (import apps/overlays/librepods.nix)
-      ]
-    else
-      [ ];
+    if device != "macbook"
+    then [
+      (import apps/overlays/jellyfin-desktop.nix)
+      (import apps/overlays/librepods.nix)
+    ]
+    else [];
 }

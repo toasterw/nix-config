@@ -1,11 +1,13 @@
-{ pkgs, config, ... }:
-
 {
+  pkgs,
+  config,
+  ...
+}: {
   hardware = {
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = [ pkgs.nvidia-vaapi-driver ];
+      extraPackages = [pkgs.nvidia-vaapi-driver];
     };
 
     nvidia = {
@@ -21,7 +23,7 @@
     };
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   environment.sessionVariables = {
     LIBVA_DRIVER_NAME = "nvidia";
@@ -34,7 +36,7 @@
     (import ../../apps/overlays/nvidia-vaapi-driver.nix)
   ];
 
-  environment.systemPackages = [ pkgs.nvidia_oc ];
+  environment.systemPackages = [pkgs.nvidia_oc];
 
   systemd.services.nvidia-oc = {
     enable = true;
@@ -47,6 +49,6 @@
       User = "root";
       Restart = "on-failure";
     };
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
   };
 }

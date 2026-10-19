@@ -1,5 +1,4 @@
-final: prev:
-let
+final: prev: let
   libs = with prev; [
     nspr
     nss
@@ -54,10 +53,9 @@ let
     krb5
     libgbm
   ];
-in
-{
+in {
   patchedDiscord = prev.discord.overrideAttrs (old: {
-    nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ prev.makeShellWrapper ];
+    nativeBuildInputs = (old.nativeBuildInputs or []) ++ [prev.makeShellWrapper];
 
     desktopItem = prev.makeDesktopItem {
       name = "discord";
@@ -69,18 +67,20 @@ in
         "Network"
         "InstantMessaging"
       ];
-      mimeTypes = [ "x-scheme-handler/discord" ];
+      mimeTypes = ["x-scheme-handler/discord"];
       startupWMClass = "discord";
     };
 
-    postInstall = (old.postInstall or "") + ''
-      wrapProgram $out/bin/discord \
-        --prefix LD_LIBRARY_PATH : ${prev.lib.makeLibraryPath libs}:/run/opengl-driver/lib:${prev.libva.out}/lib \
-        --set LIBVA_DRIVER_NAME nvidia \
-        --set __GLX_VENDOR_LIBRARY_NAME nvidia \
-        --set LIBVA_DRIVERS_PATH /run/opengl-driver/lib/dri \
-        --set VK_ICD_FILENAMES /run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json \
-        --set NVD_BACKEND direct
-    '';
+    postInstall =
+      (old.postInstall or "")
+      + ''
+        wrapProgram $out/bin/discord \
+          --prefix LD_LIBRARY_PATH : ${prev.lib.makeLibraryPath libs}:/run/opengl-driver/lib:${prev.libva.out}/lib \
+          --set LIBVA_DRIVER_NAME nvidia \
+          --set __GLX_VENDOR_LIBRARY_NAME nvidia \
+          --set LIBVA_DRIVERS_PATH /run/opengl-driver/lib/dri \
+          --set VK_ICD_FILENAMES /run/opengl-driver/share/vulkan/icd.d/nvidia_icd.json \
+          --set NVD_BACKEND direct
+      '';
   });
 }

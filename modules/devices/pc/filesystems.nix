@@ -1,14 +1,14 @@
 {
-  boot.supportedFilesystems = [ "nfs" ];
+  boot.supportedFilesystems = ["nfs"];
 
   fileSystems = {
-    "/".options = [ "compress=zstd" ];
-    "/home".options = [ "compress=zstd" ];
+    "/".options = ["compress=zstd"];
+    "/home".options = ["compress=zstd"];
     "/nix".options = [
       "compress=zstd"
       "noatime"
     ];
-    "/swap".options = [ "noatime" ];
+    "/swap".options = ["noatime"];
     "/mnt/games".options = [
       "users"
       "nofail"
@@ -27,7 +27,7 @@
   services.btrfs.autoScrub = {
     enable = true;
     interval = "monthly";
-    fileSystems = [ "/" ];
+    fileSystems = ["/"];
   };
 
   boot.zswap = {
@@ -41,7 +41,7 @@
   swapDevices = [
     {
       device = "/swap/swapfile";
-      options = [ "discard" ];
+      options = ["discard"];
       size = 16 * 1024; # 16GiB swap file
       randomEncryption = {
         enable = true;

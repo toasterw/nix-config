@@ -1,12 +1,11 @@
-{ device, ... }:
-
-{
-  imports = [
-    ./fonts.nix
-  ]
-  ++ (
-    if device == "nixos" then
-      [
+{device, ...}: {
+  imports =
+    [
+      ./fonts.nix
+    ]
+    ++ (
+      if device == "nixos"
+      then [
         ./audio.nix
         ./docker.nix
         ./ios.nix
@@ -15,7 +14,6 @@
         ./sunshine.nix
         ./wings.nix
       ]
-    else
-      [ ]
-  );
+      else []
+    );
 }

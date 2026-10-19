@@ -4,7 +4,6 @@
   lib,
   ...
 }:
-
 lib.mkMerge [
   {
     fonts.packages = with pkgs; [

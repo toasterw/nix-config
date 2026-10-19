@@ -1,11 +1,13 @@
-{ pkgs, inputs, ... }:
-let
-  wings = inputs.wings.packages.${pkgs.stdenv.hostPlatform.system}.default;
-in
 {
+  pkgs,
+  inputs,
+  ...
+}: let
+  wings = inputs.wings.packages.${pkgs.stdenv.hostPlatform.system}.default;
+in {
   virtualisation.docker.enable = true;
 
-  environment.systemPackages = [ wings ];
+  environment.systemPackages = [wings];
 
   networking.firewall = {
     allowedTCPPorts = [
@@ -17,9 +19,9 @@ in
   systemd.services.wings = {
     enable = true;
     description = "Pterodactyl Wings daemon";
-    after = [ "docker.service" ];
-    partOf = [ "docker.service" ];
-    requires = [ "docker.service" ];
+    after = ["docker.service"];
+    partOf = ["docker.service"];
+    requires = ["docker.service"];
     startLimitIntervalSec = 180;
     startLimitBurst = 30;
     serviceConfig = {
@@ -31,6 +33,6 @@ in
       Restart = "on-failure";
       RestartSec = "5s";
     };
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
   };
 }

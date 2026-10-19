@@ -4,16 +4,12 @@
   username,
   nixpkgs-stable,
   ...
-}:
-
-let
+}: let
   stable = import nixpkgs-stable {
     system = pkgs.stdenv.hostPlatform.system;
     config.allowUnfree = true;
   };
-in
-
-{
+in {
   system.configurationRevision = self.rev or self.dirtyRev or null;
   system.stateVersion = 6;
 

@@ -3,9 +3,7 @@
   # config,
   # lib,
   ...
-}:
-
-{
+}: {
   programs.coolercontrol.enable = true;
 
   environment.systemPackages = [

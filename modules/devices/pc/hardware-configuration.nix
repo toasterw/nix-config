@@ -7,9 +7,7 @@
   pkgs,
   modulesPath,
   ...
-}:
-
-{
+}: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
@@ -22,32 +20,32 @@
     "thunderbolt"
     "usbhid"
   ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-amd"];
+  boot.extraModulePackages = [];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/eb1099d2-91b7-4c88-a8ea-3847dc670b8c";
     fsType = "btrfs";
-    options = [ "subvol=root" ];
+    options = ["subvol=root"];
   };
 
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/eb1099d2-91b7-4c88-a8ea-3847dc670b8c";
     fsType = "btrfs";
-    options = [ "subvol=home" ];
+    options = ["subvol=home"];
   };
 
   fileSystems."/nix" = {
     device = "/dev/disk/by-uuid/eb1099d2-91b7-4c88-a8ea-3847dc670b8c";
     fsType = "btrfs";
-    options = [ "subvol=nix" ];
+    options = ["subvol=nix"];
   };
 
   fileSystems."/swap" = {
     device = "/dev/disk/by-uuid/eb1099d2-91b7-4c88-a8ea-3847dc670b8c";
     fsType = "btrfs";
-    options = [ "subvol=swap" ];
+    options = ["subvol=swap"];
   };
 
   fileSystems."/boot" = {
@@ -74,7 +72,7 @@
     fsType = "nfs4";
   };
 
-  swapDevices = [ ];
+  swapDevices = [];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;

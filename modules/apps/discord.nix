@@ -2,9 +2,7 @@
   pkgs,
   lib,
   ...
-}:
-
-let
+}: let
   discordPatcher = pkgs.writers.writePython3 "discord-krisp-patcher" {
     libraries = with pkgs.python3Packages; [
       pyelftools
@@ -19,10 +17,12 @@ let
   } (builtins.readFile ../../resources/krisp-patcher.py);
 
   patchedDiscord = pkgs.discord.overrideAttrs (old: {
-    postFixup = (old.postFixup or "") + ''
-      ${pkgs.findutils}/bin/find "$out/opt/Discord/modules" \
-        -name 'discord_krisp.node' -exec ${discordPatcher} {} \;
-    '';
+    postFixup =
+      (old.postFixup or "")
+      + ''
+        ${pkgs.findutils}/bin/find "$out/opt/Discord/modules" \
+          -name 'discord_krisp.node' -exec ${discordPatcher} {} \;
+      '';
 
     stageModules = pkgs.writeShellScript "discord-stage-mine" ''
       store_modules="$1"
@@ -42,14 +42,13 @@ let
       chmod -R u+w "$modules_dir"
 
       echo '${
-        builtins.toJSON (lib.mapAttrs (_: mod: { installedVersion = mod; }) old.passthru.moduleVersions)
+        builtins.toJSON (lib.mapAttrs (_: mod: {installedVersion = mod;}) old.passthru.moduleVersions)
       }' \
         > "$modules_dir/installed.json"
     '';
   });
-in
-{
-  nixpkgs.overlays = [ (import overlays/discord.nix) ];
+in {
+  nixpkgs.overlays = [(import overlays/discord.nix)];
 
   environment.systemPackages = [
     (patchedDiscord.override {
