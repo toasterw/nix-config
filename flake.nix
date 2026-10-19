@@ -27,6 +27,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    alejandra = {
+      url = "github:kamadorueda/alejandra/4.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     wings = {
       url = "github:toasterw/wings-flake";
     };

@@ -32,6 +32,8 @@ let
     pkgs.obsidian
 
     pkgs.nixfmt-tree
+
+    inputs.alejandra.defaultPackage.${pkgs.stdenv.hostPlatform.system}
   ];
 
   nixosPkgs = [
