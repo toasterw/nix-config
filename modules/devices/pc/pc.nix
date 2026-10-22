@@ -35,7 +35,7 @@
     "it87"
   ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
-    zenpower5
+    zenpower
     it87
   ];
   boot.extraModprobeConfig = ''
