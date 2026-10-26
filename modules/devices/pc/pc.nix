@@ -22,7 +22,7 @@
     pkgs.sbctl
   ];
 
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     "acpi_enforce_resources=lax" # fix resource loading conflict with it87
     "drm.edid_firmware=DP-2:edid/virtual-display.bin"

@@ -1,6 +1,6 @@
 {
   pkgs,
-  # config,
+  config,
   # lib,
   ...
 }: {
@@ -9,7 +9,7 @@
   environment.systemPackages = [
     pkgs.liquidctl
     pkgs.lm_sensors
-    pkgs.linuxPackages_zen.zenpower
-    pkgs.linuxKernel.packages.linux_zen.it87
+    pkgs.linuxPackages_latest.zenpower
+    pkgs.linuxPackages_latest.it87
   ];
 }
