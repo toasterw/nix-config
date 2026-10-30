@@ -3,8 +3,8 @@ final: prev: {
     src = prev.fetchFromGitHub {
       owner = "elFarto";
       repo = "nvidia-vaapi-driver";
-      rev = "03bb5a0c082493f95f2cd54ffd31dbfa8c7cbe7d";
-      hash = "sha256-mI0QpIRm1itUPq8y4UHn45cDZhLtkj2O9XGIROJ4TIE=";
+      rev = "443050726fdb30888a2ced1cea1c5d036ea3b15c";
+      hash = "sha256-E2c4Hn4A0Vx3lcmP/Ms7FHEtxsDcxhCmcVFvct1Uv+0=";
     };
   });
 }
