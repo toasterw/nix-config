@@ -22,6 +22,7 @@
     };
 
     kopuz.url = "github:kopuz-org/kopuz";
+
     helium = {
       url = "github:clamlum/helium-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -50,7 +51,7 @@
         username = "toaster";
       in
         mkSystem {
-          system = "x86-64-linux";
+          system = "x86_64-linux";
           specialArgs = {
             inherit device username;
             inherit (inputs) nixpkgs-stable self;
