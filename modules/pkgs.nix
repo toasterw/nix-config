@@ -65,7 +65,6 @@
     #     "--use-angle=gl"
     #   ];
     # }
-    pkgs.brave-origin
   ];
 
   macbookPkgs = [
