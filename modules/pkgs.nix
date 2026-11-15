@@ -54,6 +54,7 @@
 
     pkgs.losslesscut
 
+    pkgs.kdePackages.kdeconnect-kde
     pkgs.librepods
 
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default

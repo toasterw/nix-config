@@ -9,6 +9,7 @@
         ./audio.nix
         ./docker.nix
         ./ios.nix
+        ./nh.nix
         # ./ollama.nix
         ./tailscale.nix
         ./sunshine.nix

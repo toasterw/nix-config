@@ -50,7 +50,8 @@
 in {
   environment.systemPackages = [
     (patchedDiscord.override {
-      withVencord = false;
+      withVencord = true;
+      # withOpenAsar = true;
     })
   ];
 }

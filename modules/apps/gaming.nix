@@ -34,6 +34,6 @@ in {
   programs.gamescope = {
     enable = true;
     enableWsi = true;
-    capSysNice = false;
+    capSysNice = true;
   };
 }
