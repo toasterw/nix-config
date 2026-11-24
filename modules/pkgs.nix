@@ -21,6 +21,8 @@
     pkgs.zip
     pkgs.unzip
 
+    pkgs.ladybird
+
     pkgs.btop
     pkgs.fastfetch
 
@@ -46,7 +48,6 @@
     pkgs.furmark
 
     pkgs.jellyfin-mpv-shim
-    pkgs.jellyfin-desktop
 
     pkgs.jetbrains.idea
 
