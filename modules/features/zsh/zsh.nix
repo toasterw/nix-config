@@ -44,7 +44,7 @@
         plugins=(git)
         source "$ZSH/oh-my-zsh.sh"
 
-        if [[ -n "''${IN_NIX_SHELL:-}" ]]; then
+        if [[ -n "$IN_NIX_SHELL" || "''${PATH%%:*}" == /nix/store/* ]]; then
           PROMPT="%{$fg_bold[blue]%} %{$reset_color%}$PROMPT"
         fi
 
