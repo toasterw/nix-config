@@ -18,6 +18,8 @@
     pkgs.cargo
     pkgs.jdk25
 
+    pkgs.antigravity-cli
+
     pkgs.zip
     pkgs.unzip
 
