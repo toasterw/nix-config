@@ -11,7 +11,6 @@
 
       audio
       bluetooth
-      docker
       fonts
       limine
       locale
@@ -28,20 +27,13 @@
       git
       gpg
       helium
-      ios
       kde
       kitty
       kopuz
-      librepods
       ly
       nvidia-vaapi-driver
       obs
-      openrgb
-      printing
       sunshine
-      tailscale
-      virtualisation
-      wings
       zed
       zsh
 
