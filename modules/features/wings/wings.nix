@@ -18,7 +18,7 @@
     };
 
     systemd.services.wings = {
-      enable = false;
+      enable = true;
       description = "Pterodactyl Wings daemon";
       after = ["docker.service"];
       partOf = ["docker.service"];
