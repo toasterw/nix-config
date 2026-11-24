@@ -1,3 +1,0 @@
-{
-  imports = [./xfce.nix];
-}
