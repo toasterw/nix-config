@@ -14,6 +14,7 @@
       bubblewrap
       dysk
       fastfetch
+      file
       fzf
       unzip
       zip
