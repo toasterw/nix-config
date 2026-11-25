@@ -21,6 +21,10 @@
       openssh
       user
 
+      apps
+      cli
+      dev
+
       coolercontrol
       discord
       gaming
@@ -36,11 +40,6 @@
       sunshine
       zed
       zsh
-
-      apps
-      cli
-      dev
-      media
     ];
   };
 }

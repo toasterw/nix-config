@@ -14,6 +14,7 @@
       bubblewrap
       dysk
       fastfetch
+      (ffmpeg-full.override {withUnfree = true;})
       file
       fzf
       unzip
