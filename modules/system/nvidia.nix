@@ -1,6 +1,5 @@
 {
   self,
-  inputs,
   ...
 }: {
   flake.nixosModules.nvidia = {
@@ -8,6 +7,10 @@
     config,
     ...
   }: {
+    imports = with self.nixosModules; [
+      nvidia-vaapi-driver
+    ];
+
     hardware = {
       graphics = {
         enable = true;
