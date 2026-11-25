@@ -7,14 +7,9 @@
     self',
     ...
   }: {
-    nixpkgs.overlays = [
-      (final: prev: {
-        zsh = self'.packages.zsh;
-      })
-    ];
-
     programs.zsh = {
       enable = true;
+      package = self'.packages.zsh;
     };
   });
 
