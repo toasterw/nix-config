@@ -13,6 +13,7 @@
       inherit pkgs;
       font.name = "JetBrains Mono Nerd Font";
       font.size = 12;
+      themeFile = "rose-pine";
     };
   };
 }
