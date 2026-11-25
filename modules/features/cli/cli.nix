@@ -12,6 +12,7 @@
         else btop
       )
       bubblewrap
+      dysk
       fastfetch
       fzf
       unzip
